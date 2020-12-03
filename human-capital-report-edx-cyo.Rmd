@@ -1,0 +1,520 @@
+---
+title: "Human-capital-model"
+author: "Eboigbe, Ukponaye Desmond"
+date: "12/2/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, echoe=FALSE, message=FALSE}
+library(tidyverse)
+library(caret)
+library(data.table)
+library(ggplot2)
+library(dplyr)
+```
+
+# =======================================================
+
+# HUMAN CAPITAL DEVELOPMENT:
+## A Trajectory for Socioeconomic Progress and Wellbeing
+## [Predicting Income Level with Machine Learning Algorithms]
+##          AN EDX (CYO) PROJECT 
+
+# =======================================================
+
+
+# 1.0	INTRODUCTION
+
+Human capital is an intangible asset or quality not listed on a company's balance sheet. It can be classified as the economic value of a worker's experience and skills. This includes assets like education, training, intelligence, skills, health, and other things employer’s value such as loyalty and punctuality. The concept of human capital recognizes that not all labor is equal. But employers can improve the quality of that capital by investing in employees the education, experience, and abilities of employees all have economic value for employers and for the economy as a whole (Kenton and  Sonnenshein , 2020).
+
+In a broader sense, human capital is important because it is perceived to increase productivity and thus profitability of a group of people or a country. So the more a country invests in its citizens (i.e., in their education and training, welfare, etc.), the more productive and profitable it could be. A nation or organization is often said to only be as good as its people. 
+
+## 1.1 Human Capital and Economic Growth
+
+There is a strong relationship between human capital and economic growth. Because people come with a diverse set of skills and knowledge, human capital can certainly help boost the economy. This relationship can be measured by how much investment goes into people’s education.
+
+Some governments recognize that this relationship between human capital and the economy exists, and so they provide higher education at little or no cost. People who participate in the workforce who have higher education will often have larger salaries, which means they will be able to spend more.
+
+Thus, human capital development is significant for the following reasons:
+1.	Human capital development increases, knowledge, experience and skills of individual at affordable cost.
+2.	Since all labor is not considered equal, employers can improve human capital by investing in the training, education, and benefits of their employees.
+3.	Human capital is an asset that has a significant relationship with economic growth, productivity, and profitability.
+4.	Like any other asset, human capital can depreciate over a period of time if not effectively utilized.
+
+
+## 1.2 Features that Determine Human Capital
+
+1.	Skills and qualifications
+2.	Education levels
+3.	Work experience
+4.	Intelligence
+5.	Emotional status (marital, relationship, welfare, etc)
+6.	Personality (hard work, social skills, communication, judgement)
+7.	Creativity (ability to innovate new idea)
+8.	Geography (social peer pressure of local environment can affect expectations and attitudes)
+
+## 1.3 A Brief History of Human Capital
+
+According to (Kenton and  Sonnenshein , 2020), the idea of human capital can be traced back to the 18th century. Adam Smith referred to the concept in his book "An Inquiry into the Nature and Causes of the Wealth of Nations," in which he explored the wealth, knowledge, training, talents, and experiences for a nation. Adams suggests that improving human capital through training and education leads to a more profitable enterprise, which adds to the collective wealth of society. According to Smith, that makes it a win for everyone.
+
+In more recent times, the term was used to describe the labor required to produce manufactured goods. But the most modern theory was used by several different economists including Gary Becker and Theodore Schultz, who invented the term in the 1960s to reflect the value of human capacities.
+
+Schultz believed human capital was like any other form of capital to improve the quality and level of production. This would require an investment in the education, training and enhanced benefits of the workforce.
+
+## 1.4 Human Capital Development
+
+Human capital is considered to be one of the most important elements of economic and social progress. Human capital development is the process of improving an organization's employee performance, capabilities and resources. The process of developing human capital requires creating the necessary environments in which the workforce can learn better and apply innovative ideas, acquire new competencies, develop skills, behaviors and attitudes irrespective of their financial background. The tools for creating these opportunities mostly include training, facilitation, coaching and consulting. The emphasis lies on meeting the needs of workforce and employers.
+
+## 1.5 How to Increase Human Capital
+
+1.	Specialization and Division of Labour: Specialization allows workers to concentrate on specific tasks and increased specialization of skills. (Though specialization can also lead to boring, repetitive jobs and limited skill development of workers.)
+2.	Education: Basic education to improve literacy and numeracy has an important implication for a basis of human capital.
+3.	Vocational Training: Direct training for skills related to jobs, electrician, plumbing nursing. A skilled profession requires particular vocational training.
+4.	A Climate of Creativity: An education which enables children to think outside the box can increase human capital in a way that ‘rote learning’ and an impressive accumulation of facts may not.
+5.	Infrastructure: The infrastructure of an economy will influence human capital. Good transport, communication, availability of mobile phones and the internet are very important for the development of human capital in developing economies.
+6.	Competitiveness. An economy dominated by state monopolies is likely to curtail individual creativity and entrepreneurs. An environment which encourages self-employment and the creation of business enables greater use of potential human capital in an economy.
+
+## 1.6 Importance of Human Capital Development
+
+Human Capital is a measure of the skills, education, capacity and attributes of the labour force which influence their productive capacity and earning potential. Human Capital is the knowledge, skills, competencies and other attributes embodied in individuals or groups of individuals acquired during their life and used to produce goods, services or ideas in market circumstances. For statistical purposes, human capital can be measured in monetary terms as the total potential future earnings of the working age population. (However, this only captures part of human capital and is a limited measure)
+
+## 1.7 Benefits of Human Capital Development
+
+1.	Structural Unemployment: Individuals whose human capital is inappropriate for modern employers may struggle to gain employment. A major issue in modern economies is that rapid deindustrialization has left many manual workers, struggling to thrive in a very different labour market. Thus the individual might be challenged to learn new skill
+2.	Quality of Employment: In the modern economy, there is increasing divergence between low-skilled, low-paid temporary jobs (gig economy). High-skilled and creative workers have increased opportunities for self-employment or good employment contracts.
+3.	Economic Growth and Productivity: Long-term economic growth depends increasingly on improvements in human capital. Better educated, innovative and creative workforce can help increase labour productivity and economic growth.
+4.	Human Capital Flight: An era of globalization and greater movement of workers has enabled skilled workers to move from low-income countries to higher income countries. This can have adverse effects for developing economies who lose their best human capital.
+5.	Resource Management: Economic growth in countries with limited natural resources, e.g. Japan, Taiwan and South East Asia. Rely on high-skilled, innovative workforce adding value to raw materials in the manufacturing process.
+6.	Sustainability: This entails the ability to maintain the need for a special or particular skill in the economy. It also concerns what is left for the future generations; whether we leave enough resources, of all kinds, to provide them with the opportunities at least as large as the ones we have had ourselves.
+
+## 1.8 Relationship between Economic Growth and Well-Being
+
+It is assumed that the well-being of a generation (or of a nation) is ultimately a matter of sustaining economic growth. The growth is defined as a long-term expansion in Gross Domestic Product (GDP). Most economists seem to think that economic growth influences well-being. To argue this point, they look at the ranking of countries by level of GDP per-capita and by values of the Human Development Index (which we previously looked at). The rankings look essentially the same: the rank by level of GDP per-capita predicts the ranking by the Human Development Index very precisely. This high correlation between the two rankings seems to suggest that human development is “just” a matter of GDP per-capita and therefore that the well-being of a nation is determined by its rate of economic growth 
+
+The critical feature that interacts with economic growth to determine the extent of improvement (or deterioration) in human development and well-being is income inequality. Inequality refers to the difference in wealth or income across individuals in a country. The more unequal the distribution of wealth or income is, the less strong the improvement in human development is for any given rate of economic growth.
+
+This means that if you have two countries whose GDP is expanding at the same rate (say, 4% a year), but inequality is increasing in the first country and decreasing in the second country, then human development will likely improve faster in the second country (Carmignani  and Chowdhury 2011).
+
+## 1.9 The Fallacy
+
+Because economic growth has raised living standards around the world, modern economies have lost sight of the fact that the standard metric of economic growth, gross domestic product (GDP), merely measures the size of a nation’s economy and doesn’t reflect a nation’s welfare. Yet policymakers and economists often treat GDP, or GDP per capita in some cases, as an all-encompassing unit to signify a nation’s development, combining its economic prosperity and societal well-being. As a result, policies that result in economic growth are seen to be beneficial for society.
+
+## 1.10 The Inclusive Growth
+
+A combination of economic growth and decreasing inequality therefore provides the best possible scenario for the human development and well-being of a country or a generation. To see why, consider that economic growth is the process through which the “pie” gets bigger. Human development requires all individuals to have access to the extra pie. If instead, only a small number of the population can enjoy the extra pie, then their own well-being might increase, but the well-being of the nation as a whole will not (or it will, but to a much smaller proportion).
+
+This is the idea of inclusive growth: a significant increase in human development and well-being requires that all individuals (and not just those at the top of income distribution) have access to the benefits of economic growth. It also entails gender base equity. If that does not happen, and economic growth only benefits a few, then the nation as a whole might end-up being worse off.
+
+Therefore, the challenge to ensure that the next generation is better off is twofold:
+1.	More economic growth must be generated
+2.	Inequalities must be reduced.
+And neither of these two challenges is a simple one to tackle. 
+
+# 2.1	PROCESS AND WORKFLOW
+
+In this d study, a census data will be used to build a model to predict if the income of any individual in the dataset is greater than or less than or equal to a certain income level per annum (USD 50,000) based on the information available about that individual in the census data.
+
+The dataset used for the analysis is an extraction from the 1994 census data the survey was conducted by Barry Becker and donated to the public site http://archive.ics.uci.edu/ml/datasets/Census+Income. This dataset is popularly called the “Adult” data set. And will be explored in the following order:
+
+1.	Acquire and Read the data: Downloading the data directly from the source and reading it.
+2.	Describe the data: Specifically the predictor variables (also called independent variables features) from the Census data and the dependent variable which is the level of income (either “greater than USD 50000” or “less than or equal to USD 50000”).
+3.	Clean the data: Any data from the real world is always messy and noisy. The data needs to be reshaped in order to aid exploration of the data and modeling to predict the income level.
+4.	Explore the independent variables of the data: A very crucial step before modeling is the exploration of the independent variables. Exploration provides great insights to an analyst on the predicting power of the variable. An analyst looks at the distribution of the variable, how variable it is to predict the income level, what skews it has, etc. In most analytics project, the analyst goes back to either get more data or better context or clarity from his finding.
+5.	Build the prediction model with the training data: Since data like the Census data can have many weak predictors, for this particular case study I have chosen the non-parametric predicting algorithm of Boosting. Boosting is a classification algorithm (here we classify if an individual’s income is “greater than USD 50000” or “less than or equal to USD 50000”) that gives the best prediction accuracy for weak predictors. Cross validation, a mechanism to reduce over fitting while modeling, is also used with Boosting.
+6.	Validate the prediction model with the testing data: Here the built model is applied on test data that the model has never seen. This is performed to determine the accuracy of the model in the field when it would be deployed. Since this is a case study, only the crucial steps are retained to keep the content concise and readable.
+
+## 2.2	DATA ACQUISITION
+
+A temporary file (db) is created and the data was downloaded from the url url: http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data and stored in the temporary file. the file is read into a variable name "raw_data"
+
+```{r, echo=FALSE}
+db <- tempfile() 
+
+
+  download.file ("http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data", db)
+
+   colNames = c ("Age", "Workclass", "Final_Weight", "Education", 
+                "Education_num", "Marital_Status", "Occupation",
+                "Relationship", "Race", "Sex", "Capital_Gain",
+                "Capital_Loss", "Hours_Per_week", "Native_Country",
+                "Income_Level")
+  
+  raw_data = read.table (db, header = FALSE, sep = ",",
+                      strip.white = TRUE, col.names = colNames,
+                      na.strings = "?", stringsAsFactors = TRUE)
+
+```
+
+# DATA DESCRIPTION
+As the training data file does not contain the variable names, the variable names are explicitly specified while reading the data set. While reading the data, extra spaces are stripped. The dataset is read and stored as a data frame of 32561 rows and 15 columns into the variable name: raw_data. A high level summary of the data is below. 
+
+## Data Summary
+```{r, echoe=FALSE}
+#Pre-precessing or Data cleaning
+  summary (raw_data)
+```
+
+## variable classes and data types
+```{r, echo=FALSE}
+str (raw_data)   #expores the data type and data structure
+```
+
+## 2.4	CLEANING THE DATA
+
+The training data set is cleaned for missing or invalid data: About 7.4% (2399/32561) of the dataset has NAs in them. It is observed that most of the missing data occurred in ‘Workclass’ and ‘Occupation’ variables. And the remaining have ‘Native_Country’ variable missing. This could be handle by imputing data in missing values but ‘Workclass’, ‘Occupation’ and ‘Native_Country’ could potentially be very good predictors of income, imputing data may simply skew the model result, hence the rows with missing values are excluded. The cleaned data (without NA’s) is assigned variable name: new_data
+
+Summary of all data sets without missing data
+```{R, echoe=FALSE}
+  table (complete.cases (raw_data))
+  summary(raw_data [complete.cases (raw_data),])
+```
+
+Summary of all data sets with NAs or missing data
+```{r, echoe=FALSE}
+ # Summary of all data sets with NAs or missing data
+  table(!complete.cases(raw_data))
+  summary  (raw_data [!complete.cases(raw_data),])
+```
+
+cleaned data set (new_data)
+```{r, echoe=FALSE}
+new_data = raw_data [!is.na (raw_data$Workclass) & !is.na (raw_data$Occupation) & 
+                             !is.na (raw_data$Native_Country), ]
+head(new_data)
+```
+
+variable proportion of the prediction outcome (income level)
+```{r, echoe=FALSE}
+    table(new_data$Income_Level)
+```
+
+# 2.5 DATA EXPLORATION
+
+Each of the variables will be explored for coincidences, distribution, variance, and predictability. Due to data type because most of the data are non-parametric, transformation of variables would not be necessary to address skewness, instead this study will try to understand the data to determine each variable’s predictability. In this section, six categories of data: age, gender, education level, workclass, occupation and work duration will be examined because of their significance in human capital development.
+
+To begin data exploration and creating machine learning algorithms, there is need to partition the dataset into training and test datasets for model building and testing. Thus fifty percent (p = 0.5) of the dataset will be extracted for model training while the remainder will be used for testing. The choice model in this study would be Boosting, which is non-parametric and does not follow any statistical distribution. The goal would be to predict income level using other demographic parameters as presented in the data set. 
+
+# training the data (data partition)
+```{r, echoe=FALSE, warning=FALSE}
+set.seed(2, sample.kind="Rounding")
+  test_index <- createDataPartition(y = new_data$Income_Level, times = 1, p = 0.5, list = FALSE)
+  train_set <- new_data[-test_index,]
+  test_set <- new_data[test_index,]
+  
+```
+
+train_set (head)
+```{r, echoe=FALSE}
+head(train_set)
+```
+
+test_set (head)
+```{r, echoe=FALSE}
+head(test_set)
+```
+
+## 2.5.2	Exploring data by gender
+
+To show the gender proportion as regards income level and education see tables  below:
+```{r, echoe=FALSE}
+male_gender <- train_set %>% filter (Sex == "Male")
+  female_gender <- train_set %>% filter (Sex == "Female")
+  table (train_set[,c("Sex", "Income_Level")])
+  
+  table (train_set[,c("Sex", "Education")])
+```
+
+It is obvious that the gender proportion for Males is more than twice as much Females in the dataset:
+```{r, echoe=FALSE}
+gender_prop <-  (sum(train_set$Sex == "Male")/sum(train_set$Sex == "Female"))
+gender_prop
+```
+
+Male gender distribution using age in prediction outcomes
+```{r, echoe=FALSE}
+boxplot (Age ~ Income_Level, data = male_gender, 
+           main = "Age distribution for Male Gender income levels",
+           xlab = "Income Levels", ylab = "Age", col = "Blue")
+```
+
+Female gender distribution using age in prediction outcomes
+```{r, echoe=FALSE}
+boxplot (Age ~ Income_Level, data = female_gender, 
+           main = "Age distribution for Female Gender income levels",
+           xlab = "Income Levels", ylab = "Age", col = "Pink") 
+```
+
+It can be deduced from the boxplots of age distributions over income levels for both male and female that more males above the age of forty earn more than $50000 than females.
+
+## 2.5.3	Exploring Data by Age
+
+The age distribution for income level less that $50,000 is skewed to the right with dropping proportion as age increases while age distribution for income level greater than $50,000 is symmetric and evenly distributed with highest proportion around age 40. 
+
+The age distribution for different income levels is shown with the plot
+```{r, echoe=FALSE}
+boxplot (Age ~ Income_Level, data = train_set, 
+           main = "Age distribution for different income levels",
+           xlab = "Income Levels", ylab = "Age", col = "Green")
+```
+
+The age distribution for different income levels shows that the median age for those earning more than $50,000 is slightly above 40 while those earning less than or equal to $50,000 has median age lesser than 40.
+
+whereas the age distribution for different levels of income i.e the prediction outcomes are shown here
+```{r, echoe=FALSE, warning=FALSE}
+incomeBelow50K <- (train_set$Income_Level == "<=50K")
+  xlimit <- c (min (train_set$Age), max (train_set$Age))
+  ylimit <- c (0, 1000)
+  
+  hist1 <- qplot (Age, data = train_set[incomeBelow50K,], margins = TRUE, 
+                 binwidth = 2, xlim = xlimit, ylim = ylimit, colour = Income_Level,
+                 main = "Age distribution for income level <=50K")
+  
+  hist2 <- qplot (Age, data = train_set[!incomeBelow50K,], margins = TRUE, 
+                 binwidth = 2, xlim = xlimit, ylim = ylimit, colour = Income_Level,
+                 main = "Age distribution for income level >50K",)
+  hist1
+  hist2
+```
+
+## 2.5.4	Exploring Data by Education Level
+
+Apparently, education level is one of the major indicators of income level. The median value for income levels greater than $50,000 is equivalent with the upper quartile of the distribution an indication that there is greater propensity for higher income as education level increases, while the median value for income levels lesser than $50,000 is equivalent to the lower quartile of the distribution, which also indicates that the lower the education level, the lesser the propensity for high income.
+
+The Income level distribution by Education level and the workclass distribution by education level are shown here
+```{r, echoe=FALSE}
+   boxplot (Education_num ~ Income_Level, data = train_set, 
+           main = "Income Distribution by Education Level",
+           xlab = "Income Levels", ylab = "Education level", col = "white")
+
+  boxplot (Education_num ~ Workclass, data = train_set,
+           main = "Job Distribution by Education Levels",
+           xlab = " ", ylab = "Education Number", col = "Dark Gray",
+           las = 2)
+```
+
+## 2.5.5	Exploring Data by Work Duration
+
+The income level distribution by work duration for individuals earning less than or equal to $50,000 seem to concentrate around 40 hour per week also being its media value, meanwhile the work duration for individuals earning more than $50,000 concentrates between 25 to 65 hours per week. This is a clear indication that more work duration attracts more earning.  On the contrary, the median value for ‘>50K’ distribution for hours per week coinciding with the lower quartile shows that more individuals earning over $50,000 work less. Moreover, both income levels ‘<=50K’ and ‘>50K’ have the same median value of 40 hours per week. Logically hours per week is not a good solitary indicator of income level.  
+
+```{r, echoe=FALSE}
+  boxplot (Hours_Per_week ~ Income_Level, data = train_set,
+           main = "Income Level Distribution by Hours worked per week",
+           xlab = "Income Level ", ylab = "Hours Per Week", col = "violet",
+           las = 2 )
+```
+
+## 2.5.6	Exploring Data by Workclass
+
+This reveals that there are absolutely more individuals in the private sector, implying a capitalist economy. Self-employed not incorporated is the second employer of labour. The Federal government seem to be the least employer of labour. Apparently, self-employed incorporated have more individuals that earn above $50,000 than those earning less than or equal to $50,000. What this goes to show is that creating a venture is more lucrative and a better pathway to economic liberation, social value and wellbeing. 
+```{r, echo=FALSE}
+qplot (Income_Level, data = train_set, fill = Workclass) + 
+    theme(axis.text.x = element_text(angle=90)) +
+    facet_grid (. ~ Workclass)
+```
+
+## 2.5.7	Exploring Data by Occupation
+
+Two occupations, Exec-managerial and Prof-specialty seem to similar pattern as there as roughly as much individual earning above $50,000 as those earning less than or equal to $50,000 despite the prevalence of “<=50K” income level.  This shows that some occupation are more lucrative than others. Admin-clerical and other-service have much more individuals earning less than or equal to $50,000. Meanwhile, occupations such as Armed-forces and priv-house-serv have no individual earning above $50,000.
+
+```{r, echoe=FALSE}
+qplot (Income_Level, data = train_set, fill = Occupation) + 
+    theme(axis.text.x = element_text(angle=90)) +
+    facet_grid (. ~ Occupation)
+```
+
+# 2.6	MODELLING
+
+Building a prediction model requires some techniques, in this study the independent variables will be used except the Final_Weight  variable to build and test a demographic model (Dem_model) that predicts an outcome, i.e. the income level of an individual to be greater than USD 50000 or less than USD 50000 using entire demographic data.
+
+Secondly another model, the Human Capital model (HC_model) will be built and tested using most significant features of Human capital that predicts an outcome i.e. the income level of an individual to be greater than USD 50000 or less than USD 50000 using specific features from the demographic data.
+
+The data frame contains all the data to be used. The formula has the form [outcome ~ predictor_1 + predictor_2 + predictor_3] and so on. Since most demographic data are categorical and apparently are weak predictors, the Boosting algorithm will be required for classification modeling. Cross Validation (CV) where the training data is partitioned a specific number of times is also applied and separate boosted models are built on each. The resulting models are cumulated to arrive at final model, this helps avoid overfitting the model to the training data.
+
+The caret function [confusionMatrix] is used to compute the algorithm
+
+The Confusion Matrix
+
+A confusion matrix is a table that describes the performance of a classifier/classification model. It contains information about the actual and prediction classifications done by the classifier and this information is used to evaluate the performance of the classifier.
+
+Note that the confusion matrix is only used for classification tasks, and as such cannot be used in regression models or other non-classification models.
+
+The prediction rule will be to predict an outcome (income levels) based on features in the dataset. This can be done by constructing the confusion matrix, which basically tabulates each combination of prediction and actual value.
+
+# 3.0 RESULT
+
+The model result shows the product of the machine learning algorithm that is designed to predict individual’s income level given that there are two classes of income levels: income greater than $50,000 (>50K) and income lesser or equal to $50,000 (<=50K). The model uses the confusion matrix to analyze significant data believed to be predictors of income. The ultimate aim of human capital development is to increase income, which arguably improves wellbeing. Two strong predicators, gender and education level were examined in the first phase.
+
+## 3.1	Income level prediction by gender
+```{r, echoe=FALSE}
+ y <- factor(train_set$Sex, c("Female", "Male"))
+  x <- train_set$Income_Level
+  
+  y_hat <- ifelse(x == ">50K", "Male", "Female") %>% 
+    factor(levels = levels(y))
+  
+  Acc <- mean(y_hat==y) 
+  Sen <- sensitivity(y_hat, y)
+  spe <- specificity(y_hat, y)  
+  prev <- mean(y == "Male")
+  tibble(Acc,Sen,spe, prev)
+```
+
+The result above indicates that the model predicting a male to earn “>50K” is 50.3% accurate, with 88.8% sensitivity and 31.6% specificity. Though the male gender has 67.2% prevalence. Conversely, the female gender would be 49.7% accurate, which indicates that income level is not gender based as there is slight difference despite the prevalence.
+
+To further buttress equity in gender performance in terms of income levels see plot below with consideration to scaling.
+```{r, echoe=FALSE}
+qplot (Sex, data = train_set, fill = Income_Level) + 
+    theme(axis.text.x = element_text(angle=90)) +
+    facet_grid (. ~ Income_Level)
+```
+
+
+## 3.2	Income level prediction by education level
+
+```{r, echoe=FALSE}
+  a <- factor(train_set$Income_Level, c("<=50K", ">50K"))
+  b <- train_set$Education_num
+  a_hat <- ifelse(train_set$Education_num > (mean(train_set$Education_num)), "<=50K", ">50K") %>% 
+  factor(levels = levels(train_set$Income_Level))
+  acc_Ed <- mean(a == a_hat)
+  sen_Ed <- sensitivity(a_hat, a)
+  spe_Ed <- specificity(a_hat, a) 
+  prev_Ed <- mean(a == "<=50K")
+  tibble(acc_Ed, sen_Ed, spe_Ed, prev_Ed)
+```
+
+This model predicts income level for education number greater than the average. The prediction that individuals having more than the average education number earns “<=50K” is 28.8% accurate with 24.6% sensitivity and 41.4% specificity. Though the “<=50K” is 75.1% prevalent in the income level. Ultimately, it can be deduced that the prediction for individuals having more than average education number earning “>50K” is 71.2% accurate. Thus higher education will result in better income. This is the main crux of human capital development. 
+
+Accuracy was tested for values between the average education number to maximum (10 – 16) and the best cutoff produced this pattern and optimum accuracy at:
+```{r, echoe=FALSE}
+ cutoff <- seq(10, 16)
+  accuracy <- map_dbl(cutoff, function(b){
+    a_hat_hat <- ifelse(train_set$Education_num > b, "<=50K", ">50K") %>% 
+      factor(levels = levels(test_set$Income_Level))
+    mean(a_hat_hat == train_set$Income_Level)
+  })
+  
+  best_cutoff <- cutoff[which.max(accuracy)]
+  best_cutoff
+  
+  plot(cutoff, accuracy)
+  
+#accuracy of the best cutoff for predicting income level with education level
+    c_hat <- ifelse(test_set$Education_num > best_cutoff, "<=50K", ">50K") %>% 
+    factor(levels = levels(test_set$Income_Level))
+  c_hat <- factor(c_hat)
+  mean(c_hat == test_set$Income_Level)
+```
+
+to further expanciate on this assumption see plot below, which shows: prof-school, master and doctorate has more individuals earning more than “>50K” than those earning “<=50K” while those with bachelor have a higher proportion of those earning “>50K” compared to lesser education ratings. This is a clear indication that education is a strong indicator for income level. 
+
+```{r, echoe=FALSE}
+ qplot (Income_Level, data = train_set, fill = Education) + 
+    theme(axis.text.x = element_text(angle=90)) +
+    facet_grid (. ~ Education)
+```
+This shows that higher education attract higher income.
+
+## 3.3	Model result using entire demographic data (Dem_Model)
+The training set was subjected to the Confusion matrix model. In this case all the demographic details were included as predictors in the model except the Final_Weight data. The goal is to analyze all the predictors in the algorithm and predict income levels “<=50K” or “>50K” based on available data. 
+
+Result for Demographic Model(Dem_model) using all categories of data
+```{r, echoe=FALSE, warning=FALSE}
+   set.seed(2, sample.kind="Rounding")
+  trCtrl <- trainControl(method = "cv", number = 10)
+  
+   boostFit <- train(Income_Level ~ Age + Workclass + Education + Education_num +
+                      Marital_Status + Occupation + Relationship + Sex +
+                      Race + Capital_Gain + Capital_Loss + Hours_Per_week +
+                      Native_Country, trControl = trCtrl, 
+                    method = "gbm", data = train_set, verbose = FALSE)
+  
+  confusionMatrix (train_set$Income_Level, predict (boostFit, train_set))
+```
+
+This result shows that using these demographic details (Age + Workclass + Education + Education_num +  Marital_Status + Occupation + Relationship + Sex + Race + Capital_Gain + Capital_Loss + Hours_Per_week + Native_Country) to predict income level that is “<=50K) is 86.7% accurate with 88.4% sensitivity, 79.6% specificity. Meanwhile the prevalence of the positive class (<=50K) is 80.4%. this needs to be validated using the test_set.
+
+Dem_model Validation and Testing
+
+```{r, echoe=FALSE}
+  test_set$predicted <- predict (boostFit, test_set)
+  confusionMatrix (test_set$Income_Level, test_set$predicted)
+```
+
+The model testing for prediction using the entire demography produced accuracy of 85.8% with 87.9% sensitivity and 77.4% specificity. These parameters validates the result from the training data for the Dem_model with the accuracy falling by approximately 1%. 
+
+## 3.4	Human Capital Model (HC_Model)
+
+This model applied features that are most significant indicators of Human Capital Indicators. Human Capital is mostly indicated by the following data fields (Age + Education + Education_num + Sex + Workclass + Occupation + Hours_Per_week) according to the available data. Thus building a model with these significant fields instead of the entire demographic details produces the following result
+
+```{r, echoe=FALSE, warning=FALSE}
+  set.seed(3, sample.kind="Rounding")
+  trCtrl_2 <- trainControl(method = "cv", number = 10)
+  
+  boostFit_2 <- train(Income_Level ~ Age + Education + Education_num + Sex +
+                    Workclass + Occupation + Hours_Per_week, trControl = trCtrl_2, 
+                    method = "gbm", data = train_set, verbose = FALSE)
+  
+  confusionMatrix (train_set$Income_Level, predict (boostFit_2, train_set))
+```
+
+The model predicted income level with 82.1% accuracy with 84.7% sensitivity and 70% specificity. The positive class (<=50K) has 82.5% prevalence. These parameters tend to produce more accurate result having weaned out the weak predictors in the dataset.
+
+HC_Model Validation and Testing
+
+```{r, echoe=FALSE}
+test_set$predicted_2 <- predict (boostFit_2, test_set)
+  confusionMatrix (test_set$Income_Level, test_set$predicted_2)
+```
+
+The Hc_model testing for predicting income level using the most significant human capital features or indices produces 81.2% accuracy with 83.9% sensitivity and 67.9% specificity. The positive class (<=50K) has 83%. These parameters also validates the result from the training data for the HC_Model with the accuracy falling by approximately 1% as well. 
+
+However, due to the nature of the dataset, most of the variables are categorical dataset. Apparently, non-parametric data are weak predictors. The demographic model (Dem_model) used 13 predictors in the algorithm and produced [0.8584] accuracy while the Human Capital model (HC_model) used 7 predictors and produced [0.8121] accuracy indicating that almost half of the predictor in the demographic model had little impact on the prediction process.
+
+Meanwhile, there seem to be little or no correlation between the continuous variables in the dataset. 
+
+```{r, echoe=FALSE}
+ corTab <- cor (train_set[, c("Age", "Education_num", "Hours_Per_week")])
+ corTab %>% knitr::kable() 
+```
+
+# 4.1	SUMMARY AND CONCLUSION
+
+Human capital cannot be absolutely quantified because it is more or less an intangible feature which gives an entity the edge over its competitors. Human capital development is the process of improving those qualities that stands out an entity from the pack.  Human capital development could be individual base (a person) or collectively (as a nation). A country may be ranked higher/lower with a counterpart nation in terms of human capital, while individuals could also be assessed in terms of human capital. Improving human capital increases the prospect of productivity, which invariably improves income and in the long run impact socio-economic progress which arguably is a panacea for wellbeing.  
+
+It is a common believe that human capital is primarily assessed based on gender and education level even though other features are equally significant. Thus this study examined the gender and education using baseline prediction algorithms. It was discovered that income level is not gender based because the baseline prediction accuracy for “Male” earning a “>50K” is 50.3%, while the baseline prediction accuracy for “Female” earning a “>50K” is 49.7 even though the male is nearly 75% more prevalent than female.
+
+Meanwhile, the baseline prediction for education level shows that individuals having more than average education number and earning “<=50K” is 28.8% while the baseline prediction that individuals having more than the average education number earning “>50K” is 71.2% accurate, which means income level is directly affected by education level.
+
+Conclusively, a prediction model was built with the entire demographic (census) data [dem_model] using boosting algorithm which performed better than the model of the Human capital features (most significant features of human capital) [HC_model]. That is, when there are more useful predictors involved in model building irrespective of their impact, the propensity to predict correctly increases. 
+
+## 4.2	LIMITATIONS OF THE STUDY
+
+The major limitation of this study is the scope of the data. The data is typically a census conducted in the United States of America, and out of the 32,561 rows, 29,170 represents individuals in the United States of America, which means approximately 90% of the data set represent a particular native country, while the remaining 10% represent the others. Ultimately, the findings might be based on what is obtainable in the United States of America which may differ when a more evenly distributed data is applied.  
+
+Secondly, since the survey was conducted in 1994, by 26 years later the data may have been stale as income levels and other features of the data may have drastically changed in connection to human capital development.  
+
+Lastly, most features of the dataset are categorical data. Categorical or nonparametric data are weak predictors.
+
+## 4.3	FUTURE WORK
+
+In the future, it is recommended that recent and balanced dataset are applied to studies of this magnitude. Also where necessary and practicable nonparametric data should be given numeric values in the order of precedence as this will improve data or model performance because during data analysis, it is very important to understand how the built model has performed with respect to existing dataset. This will help to understand the significance of the model when applied to data at real time.
+
+# REFERENCES
+
+Carmignani F. and Chowdhury A. (2011). Four Scenarios of Development and the Role of Economic Policy
+Available at: https://doi.org/10.1080/00220388.2010.506920
+
+Kenton W, And Sonnenshein M. (2020). Human Capital. Investopedia.  
+Available at: https://www.investopedia.com/terms/h/humancapital.asp
+
+Rafael A. Irizarry (2019). Introduction to Data Science: Data Analysis and Prediction Algorithms with R
+
+Witten I. H., Frank E., Hall M. A. (2011). Data Mining: Practical Machine Learning Tools and Techniques. Third Edition. Morgan Kaufmann Series, USA. Elsevier, ISBN 978-0-12-374856-0
+
+
+
